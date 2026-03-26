@@ -92,6 +92,8 @@ body {
   justify-content: center;
   font-weight: bold;
   color: black;
+  overflow:hidden;
+  font-size : 14px ;
 }
 
 .line {

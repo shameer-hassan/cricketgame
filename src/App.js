@@ -164,7 +164,6 @@ function App() {
     set_msg("Game restarted. Select a batting style and hit Play Shot.");
   }
 
-  // Generate 40 random pieces of confetti
   const make_confetti = () => {
     let pieces = [];
     for (let i = 0; i < 40; i++) {
@@ -185,8 +184,17 @@ function App() {
   return (
     <div className="main-box">
       
-      {/* Confetti Overlay */}
       {over && <div className="confetti-wrap">{make_confetti()}</div>}
+
+      {over && (
+        <div className="end-wrap">
+          <div className="end-box">
+            <h2>OVERS COMPLETED</h2>
+            <p>{msg}</p>
+            <button className="rst-obj" onClick={reset_game}>Play Again</button>
+          </div>
+        </div>
+      )}
 
       <div className="score">
         <div>Runs: {r}</div>
@@ -196,7 +204,7 @@ function App() {
 
       <div className="fld">
         <div className="pch">
-          <div className={`bat ${swing ? 'swing' : ''}`}>🏏</div>
+          <div className={`bat ${swing ? 'swing' : ''}`}>🏌️🏏</div>
           <div className={`ball ${bowl ? 'bowl' : ''}`}>⚾</div>
         </div>
       </div>
@@ -209,7 +217,7 @@ function App() {
               style={{ width: `${z.prob * 100}%`, backgroundColor: z.color }}
               className="col-seg"
             >
-              {z.prob > 0.05 ? z.name : ''}
+              { z.name }
             </div>
           ))}
         </div>
